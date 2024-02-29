@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title> Flavorsome Recipes</title>
+    <!-- Add this script in the head section of your HTML file -->
+<script>
+    // Function to show the login form
+    function showLogin() {
+        var loginSection = document.querySelector('.login-section');
+        loginSection.style.display = 'block';
+    }
+
+    // Function to hide the login form
+    function hideLogin() {
+        var loginSection = document.querySelector('.login-section');
+        loginSection.style.display = 'none';
+    }
+
+    // Function to handle login
+    function login() {
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+
+        var username = usernameInput.value;
+        var password = passwordInput.value;
+
+        // Perform validation or authentication here
+        // For simplicity, let's just check if both fields are non-empty
+        if (username.trim() !== '' && password.trim() !== '') {
+            alert('Login successful!'); // You can replace this with your actual login logic
+            hideLogin(); // Hide the login form after successful login
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all links with an href that starts with '#'
+        const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+
+        // Attach click event listener to each link
+        smoothScrollLinks.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href").substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+    });
+</script>
+</head>
+
+<body>
+    <div class="login-section" style="display: none;">
+    <h2>Login</h2>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    <button onclick="hideLogin()">Close</button>
+</div>
+    <header>
+        <div class="logo">Sister's recepes</div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#task-manager">Daily recipes Manager</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="file:///C:/Users/Andrija/Desktop/recipes%20for%20project/index.html#">Recipes</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="login-link"><a href="#" onclick="showLogin()">Login</a></li>
+            </ul>
+        </div>
+    </header>
+    <section id="home" class="hero">
+        <div class="content">
+            <h4>Unleash Your Culinary Passion</h4>
+            <h1>Discover Taste Sensations</h1>
+            <h3>Elevate Your Cooking Game</h3>
+        </div>
+    </div>
+    </section>
+    <!-- Task Manager Section -->
+    <section id="task-manager" class="task-manager">
+            <h2>Daily recipes Manager</h2>
+
+            <div class="task-days">
+                <div class="task-day" id="Monday">
+                    <h3>Monday</h3>
+                    <div class="task-list" data-day="Monday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Monday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Tuesday">
+                    <h3>Tuesday</h3>
+                    <div class="task-list" data-day="Tuesday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Tuesday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Wednesday">
+                    <h3>Wednesday</h3>
+                    <div class="task-list" data-day="Wednesday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Wednesday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Thursday">
+                    <h3>Thursday</h3>
+                    <div class="task-list" data-day="Thursday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Thursday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Friday">
+                    <h3>Friday</h3>
+                    <div class="task-list" data-day="Friday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Friday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Saturday">
+                    <h3>Saturday</h3>
+                    <div class="task-list" data-day="Saturday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Saturday')">Add Recipe</button>
+                    </div>
+                </div>
+                <div class="task-day" id="Sunday">
+                    <h3>Sunday</h3>
+                    <div class="task-list" data-day="Sunday">
+                    </div>
+                    <div class="task-input">
+                        <input type="text" class="task-input" placeholder="Enter your recipe">
+                        <button onclick="addTask('Sunday')">Add Recipe</button>
+                    </div>
+                </div>
+        </section>
+
+     <!----About Section Start---------------------------------->
+     <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="main">
+            <img src="images/masu bilde.JPG" alt="">
+            <div class="about-text">
+                <p>Welcome to our recipe website, where culinary inspiration meets delicious creations! Whether you're a
+                    seasoned chef or a passionate home cook, we are here to ignite your taste buds and guide you on a
+                    delightful culinary journey. Our extensive collection of recipes covers a wide range of cuisines,
+                    from comforting classics to innovative fusion dishes. Each recipe is thoughtfully crafted, tested,
+                    and presented with step-by-step instructions, ensuring that even the novice cook can create
+                    extraordinary meals. We believe that cooking is an art form that brings people together, and our
+                    goal is to empower you to explore your culinary creativity and make every meal a masterpiece. So
+                    come on in, explore our diverse recipe collection, and let's embark on a delightful gastronomic
+                    adventure together!</p>
+
+            </div>
+        </div>
+    </section>
+     </section>
+    <!-----Recipes Section Start---------------------------------->
+    <section id="recipes" class="recipe">
+    <div class="recipe">
+        <h2>Featured Recipes</h2>
+        <div class="box">
+            <div class="card">
+                <img src="images/lazanja.jpg" alt="">
+                <div class="content">
+                    <h3>Lasagna</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/meatballs with.jpg" alt="">
+                <div class="content">
+                    <h3>Meatballs with mashed potatoes</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/burger.jpg" alt="">
+                <div class="content">
+                    <h3>Burger</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/tīteņi.jpg" alt="">
+                <div class="content">
+                    <h3>Tīteņi</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/kebab plate.jpg" alt="">
+                <div class="content">
+                    <h3>Kebab plate</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/chicken soup.jpg" alt="">
+                <div class="content">
+                    <h3>chicken soup</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/enchilasas.jpg" alt="">
+                <div class="content">
+                    <h3>Enchiladas</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/spagetti.jpg" alt="">
+                <div class="content">
+                    <h3>Pasta</h3>
+                    <P>there will be text.</P>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------categories section-------------------------------->
+    <div id="categories" class="categories">
+        <h2>categories</h2>
+        <div class="box">
+            <div class="ca-card">
+                <img src="images/dinner.jpg" alt="">
+                <div class="content">
+                    <h3>Dinner</h3>
+                    <p>there will be text..</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <div class="ca-card">
+                <img src="images/dessert.jpg" alt="">
+                <div class="content">
+                    <h3>Desserts</h3>
+                    <p>there will be text.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <div class="ca-card">
+                <img src="images/healthy.jpg" alt="">
+                <div class="content">
+                    <h3>Healthy Eats</h3>
+                    <p>there will be text.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <div class="ca-card">
+                <img src="images/baking.jpg" alt="">
+                <div class="content">
+                    <h3>Baking</h3>
+                    <p>there will be text.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+     <!------------contact section-------------------------->
+    <section id="contact" class="contact">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> Salnas iela 5, Riga,city, Latvia</p>
+            <p><strong>Phone:</strong>29199025</p>
+            <p><strong>Email:</strong><br>
+            andrija.reinfelde03@gmail.com</p>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea name="message" id="message"  required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+<footer>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100008755305943" class="social-icon"> <i class="fab fa-facebook"></i> </a>
+        <a href="#" class="social-icon"> <i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/aandrucis/" class="social-icon"> <i class="fab fa-instagram"></i> </a>
+    </div>
+</footer>
+<script>
+        function addTask(day) {
+            var taskInput = document.querySelector('.task-day[data-day="' + day + '"] .task-input input');
+            var taskText = taskInput.value;
+
+            if (taskText.trim() !== "") {
+
+                var taskElement = document.createElement("div");
+                taskElement.className = "task-item";
+                taskElement.textContent = taskText;
+
+                var taskList = document.querySelector('.task-day[data-day="' + day + '"] .task-list');
+                taskList.appendChild(taskElement);
+
+                 var overallTasks = document.querySelector('.overall-tasks');
+                overallTasks.appendChild(taskElement);
+
+                taskInput.value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
